@@ -1,0 +1,182 @@
+:root{
+    --rudo-blackred: #110101;
+    --rudo-darkred: #5C1414;
+    --rudo-red:#A82929;
+    --rudo-lightred: #F6D3D3;
+
+    --enjin-blackred: #110601;
+    --enjin-darkred: #402F20;
+    --enjin-red:#A86429;
+    --enjin-lightred: #F6E7D3;
+
+    --zanka-blackred: #010A11;
+    --zanka-darkred: #2958A8;
+    --zanka-red:#2958A8;
+    --zanka-lightred: #D3DEF6;    
+
+    --riyo-blackred: #010A11;
+    --riyo-darkred: #145A1E;
+    --riyo-red:#29A838;
+    --riyo-lightred: #D3F6E4;    
+    
+}
+
+@font-face{
+    font-family: manga-font;
+    src: url(../content/fonts/manga_temple/mangat.ttf);
+}
+
+body{
+
+    background: url(../content/Images/Rudo/bg_rudo.png) no-repeat;
+    /* background-color: var(--rudo-blackred); */
+    font-family: manga-font;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title-bar{
+        width: 416px;
+        height: 24px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        background-color: var(--rudo-darkred);
+        
+        
+        .title-icons{
+            display: flex;
+            gap: 10px;
+            margin: 0 5px;
+            img{
+                height: 20px;
+                width: 20px;
+            }
+        }
+    }
+
+    .heading{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+
+        h1{
+            font-size: 20px;
+            color: var(--rudo-red);
+            margin: 25px 0 0 0;
+        }
+
+        .arrows{
+            display: flex;
+            gap: 20px;
+            margin: 0px 0 15px 0;
+        }
+    }
+
+    .input-field{
+
+        display: flex;
+        flex-direction: row;
+        gap: 6px;
+
+        #inputBox{
+            border: none;
+            background-color: var(--rudo-darkred);
+            width: 315px;
+            height: 34px;
+            border-radius: 30px;
+        }
+        #inputBox::placeholder{
+            color: var(--rudo-blackred);
+            padding:5px 15px ;
+            font-size: 12px;
+
+        }
+
+        #addTask{
+            background-color: var(--rudo-red);
+            border-radius: 21px;
+            width: 34px;
+            height: 34px;
+            border: none;
+            cursor: pointer;
+            align-items: center;
+
+            img{
+                max-height: 100%;
+                margin: 7px 3px;     
+            }
+         
+
+        }
+    }
+
+
+    .task-added{
+        color: var(--rudo-lightred);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 10px;
+        width: 363px;
+
+        li{
+            list-style: none;
+            padding: 12px 8px 12px 18px;
+            margin: 0;
+            user-select: none;
+            cursor: pointer;
+            position: relative;
+        }
+
+        li::before{
+            content: '';
+            position: absolute;
+            height: 25px;
+            width: 25px;
+            background-color: var(--rudo-lightred);
+            border-radius: 50px;
+            border: 2px solid var(--rudo-lightred);
+            top: 6.5px;
+            left: -28px;
+        }
+
+        li:checked{
+            color: var(--rudo-red);
+            text-decoration: line-through;
+            
+        }
+
+        li.checked::before{
+            background-color: var(--rudo-lightred);
+            border: 2px solid var(--rudo-red);
+        }
+
+        ul{
+            margin: 0;
+        }
+
+        .task{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 14px;
+            background-color: var(--rudo-red);
+            border-radius: 30px;
+            border: 2px solid var(--rudo-lightred);
+
+        }
+
+        span{
+            position: absolute;
+            right: 20px;
+            top: 13px;
+            
+            
+        }
+    }
+
+}
