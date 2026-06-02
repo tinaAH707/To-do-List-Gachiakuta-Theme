@@ -13,7 +13,7 @@
  
 
 
-body{
+.rudoTheme{
 
     background: url(../content/Images/Rudo/bg_rudo.png) no-repeat;
     font-family: manga-font;
@@ -82,6 +82,8 @@ body{
         }
 
         .iconRight{
+            display: none;
+            
             background-image: url("../content/Images/Zanka/zanka_icon.png");
             width: 50px;
             height: 43px;
@@ -94,6 +96,8 @@ body{
         }
 
         .iconLeft{
+            display: none;
+
             background-image: url("../content/Images/Enjin/enjin_icon.png");
             width: 50px;
             height: 43px;
@@ -101,7 +105,7 @@ body{
             background-repeat: no-repeat;
 
             position: absolute;
-            left: 90px;
+            left: 85px;
             top: 95px;
         }
 
@@ -122,10 +126,12 @@ body{
             height: 34px;
             border-radius: 30px;
             text-indent: 10px;
+                        color: var(--light-color);
+
 
         }
         #inputBox::placeholder{
-            color: var(--black-color);
+            color: var(--light-color);
             padding:5px 15px ;
             font-size: 12px;
 
