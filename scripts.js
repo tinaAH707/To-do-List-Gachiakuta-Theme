@@ -10,6 +10,7 @@ console.log(rightArrow)
 document.addEventListener('DOMContentLoaded', () => {
     arrowHover();
     charcterSelection();
+    addTask();
     
 })
 
@@ -36,7 +37,7 @@ function arrowHover(){
 function charcterSelection(){
     const body = document.body
 
-    const characters = [ 'rudoTheme', 'zankaTheme', 'riyoTheme', 'enjinTheme'];
+    const characters = [ 'body', 'zankaTheme', 'riyoTheme', 'enjinTheme'];
     let currentIndex = 0;
     
     rightArrow.addEventListener("click", ()=>{
@@ -44,5 +45,60 @@ function charcterSelection(){
         currentIndex = (currentIndex + 1) % characters.length;
         body.classList.add(characters[currentIndex])//add
     })
+
+    leftArrow.addEventListener("click", ()=>{
+        body.classList.remove(characters[currentIndex]); //remove class
+        if (currentIndex === 0) {
+            currentIndex = characters.length - 1;
+        }else{
+        currentIndex = (currentIndex - 1) % characters.length;
+        }
+        body.classList.add(characters[currentIndex])//add
+    })
     
 }
+
+//type into the input box so when you press add it takes that and adds a ul
+
+const addTaskButton = document.getElementById("addTask");
+const inputBox = document.getElementById("inputBox");
+const taskList = document.getElementById("taskList");
+
+function addTask(){
+
+    addTaskButton.addEventListener("click", ()=>{
+ 
+        event.preventDefault();
+
+        if(inputBox.value === ""){
+            alert("add a freaking task >:3 !");
+        } else{
+            const li = document.createElement("li");
+            li.innerHTML = inputBox.value;
+            taskList.appendChild(li);  
+            
+
+            const span = document.createElement("span");
+            span.innerHTML="x";
+            li.appendChild(span);
+
+            li.addEventListener("click", ()=>{
+                li.classList.toggle("checked")
+            })            
+
+            span.addEventListener("click", ()=>{
+                li.remove();
+            })
+        }
+        inputBox.value = '';
+
+        
+
+    })
+
+    
+
+
+
+}
+

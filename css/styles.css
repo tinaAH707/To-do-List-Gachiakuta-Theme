@@ -13,7 +13,7 @@
  
 
 
-.rudoTheme{
+body{
 
     background: url(../content/Images/Rudo/bg_rudo.png) no-repeat;
     font-family: manga-font;
@@ -162,11 +162,12 @@
         }
     }
 
+  
     .task-added{
         color: var(--light-color);
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 30px;
         margin: 10px;    
         width: 363px;
         
@@ -174,85 +175,72 @@
         ul{
             padding: 0;
             margin: 0;
-        }
+            width: 363px;
+            height: 162px;
+            overflow: auto;
+            scrollbar-color: var(--light-color) transparent;
+            scrollbar-width: none;
 
-        .taskvv{
-            display: flex;
-            align-items: center;
-            padding:0 16px;
-            background-color: var(--color);
-            border-radius: 40px;
-            border: 2px solid var(--light-color);
-            height: 40px;
-
-            .to-do-text{
-                font-size: 14px;
-                padding: 10px;
-                padding-right: 0;
-                flex-grow: 1;
-            }
-
-            .delete-button{
-                background: none;
-                border: none;
-                color: var(--light-color);
-                
+        
+           li{
                 display: flex;
-                justify-content: center;
+                margin-bottom: 10px;
                 align-items: center;
-                padding: 3px;
-
+                padding:0 16px;
+                background-color: var(--color);
+                border-radius: 40px;
+                border: 2px solid var(--light-color);
+                height: 40px;list-style: none;    
+                position: relative;
+                user-select: none; /*prevents highlight text*/
                 cursor: pointer;
-                transition: 150ms ease; /*color transtion slower*/
-
                 
-            }
             
-            .delete-button:hover{
-                color:  var(--black-color);
-            }
 
-                .custom-checkbox{ /*the circle checkbox*/
-                    border: 2px solid var(--light-color);
-                    border-radius: 50% ;
-                    background-color: var(--light-color);
-                    min-height: 20px;
-                    min-width: 20px;
-                    display: flex;
-                    
-                    flex-shrink: 0; 
-                    transition: 200ms ease;
+                span{
+                    position: absolute;
+                    right: 15px;
+                    top: 9px;
+                    width: 25px;
+                    height: 25px;
+                    font-size: 20px;
+                    line-height: 25px;
+                    text-align: center;
+                    border-radius: 5px;
                     cursor: pointer;
                 }
 
-                input[type="checkbox"]:checked ~ .custom-checkbox{
-                    background-color: var(--color);
-                    border: 2px solid var(--color);
+                span:hover{
+                    background-color: var(--dark-color);
                 }
-                
-           
-                input[type="checkbox"]:checked ~ .to-do-text{
-                    text-decoration: 2px line-through;
-                    color: var(--color);
-                 }          
-                 
-                 input[type="checkbox"]:checked ~ .delete-button{
-                    color: var(--color);
-                 }           
-
-                 input[type="checkbox"]{ /*hides the orginal checkbox*/
-                    display: none;
-                 }
+            }
         }
 
-        
-         .taskvv:has(input:checked) {
-            background-color: var(--light-color);  
-            border:2px solid var(--color);       
-            } 
-       
-    }
+        ul li::before{
+                content: '';
+                height: 25px;
+                width: 25px;
+                background-color: var(--light-color);
+                border-radius: 20px;
+                border: var(--light-color);
+                margin-right: 10px;
+            }
 
+        ul li.checked{
+                color: var(--color);
+                text-decoration: line-through;   
+                background-color: var(--light-color);
+                border-color: var(--dark-color);
+            
+            }
+            
+        ul li.checked::before{
+                background-color: var(--dark-color);
+                border-radius: 20px;
+                border: var(--dark-color);
+            }
+        
+    }
 }
 
 .zankaTheme{
